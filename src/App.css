@@ -1,3 +1,12 @@
+:root {
+  --primary-color: #36809E;
+  --light-blue: #8ecae6;
+  --light-brown: #CAC69B;
+  --secondary-color: #A9F569;
+  --light-green: #A3C586;
+  --dark-green: #52734D;
+}
+
 /* styles.css */
 body, html{
   margin: 0;
@@ -118,9 +127,9 @@ body::-webkit-scrollbar{
 /* ---  EXPLORING OPTIONS --- */
 
 .exploring-options{
-  background-color: #36809E;
+  background-color: var(--primary-color);
+  height: 120vh;
   width: 100%;
-  height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -128,17 +137,17 @@ body::-webkit-scrollbar{
 }
 
 .exploring-options{
-  background-color: #36809E;
+  background-color: var(--primary-color);
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   text-align: center;
   display: flex;
   flex-direction: column;
 }
 
-
 #header-exploring-options{
   margin: 0;
+  margin-top: 10vh;
   height: 38vh;
   color: white;
   font-weight: bold;
@@ -151,10 +160,10 @@ body::-webkit-scrollbar{
   transform: translate(0, 80%);
 }
 
-
 .carousel-container{
   width: 100%;
   height: 62vh;
+  margin-bottom: 10vh;
 }
 
 .carousel-container-hidden> * {
@@ -177,11 +186,9 @@ body::-webkit-scrollbar{
   grid-auto-rows: minmax(100px, auto);
 }
 
-
-
 .clothin-pin {
   height: 100px;
-  transform: translate(-90%, -90%);
+  transform: translate(-130%, -105%);
   margin-top: -50%;
 }
 
@@ -232,7 +239,7 @@ body::-webkit-scrollbar{
 
 .hidden {
   opacity: 0;
-  transition: opacity 0.5s ease-out;
+  transition: opacity 1s ease-out;
 }
 
 .bounce-in {
@@ -244,7 +251,7 @@ body::-webkit-scrollbar{
   visibility: hidden;
   transition: opacity 1s ease-in, visibility 0.5s linear 0.5s; 
   position: absolute;
-  margin-top: 32vh;
+  margin-top: 42vh;
   max-height: 60vh;
   width: 100%;
   display: flex;
@@ -311,3 +318,76 @@ body::-webkit-scrollbar{
   padding-right: 10px;
   text-align: justify;
 }
+
+/* --- PERKS --- */
+
+.perks{
+  background-color: var(--light-brown);
+  max-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  color: white;
+}
+
+.perks > div{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 40% 10% 5% 35% 10%;
+  text-align: center;
+}
+
+.perk.highlight{
+  background-color: var(--light-blue);
+}
+
+.perk-icon{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.perk-title{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: bold;
+  font-size: 2em;
+  margin-top: 3%;
+}
+
+.perk-subtitle > p{
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.perk-desc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  font-size: 1.1em;
+}
+
+.perk-redirect{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
+.perk-button{
+  width: 50%;
+  height: 90%;
+  border-radius: 10px;
+  background-color: white;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perk-button > p{
+  font-size: 1.1em;
+}
+

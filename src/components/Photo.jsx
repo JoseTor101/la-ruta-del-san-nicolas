@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ClothingPin from '../img/clothin_pin.svg';
 import Test from '../img/test.jpg';
+import Test1 from '../img/test1.jpg';
 
 function Photo ({ inview, showDetails }) {
     const [clicked, setClicked] = useState(false);
@@ -22,7 +23,7 @@ function Photo ({ inview, showDetails }) {
             <img src={ClothingPin} className='clothin-pin' alt="clothin-pin" />
             <div className='square'>
                 <div className='square-photo'>
-                    <img src={Test} alt='test-img' />
+                    <img src={Test1} alt='test-img' />
                 </div>
             </div>
         </div>
