@@ -32,7 +32,7 @@ function App() {
     setSeeHeader(exploringInView || perksInView);
   };
 
-  // Use a useEffect to handle intersection changes
+  // Handle changes in intersections of selected views
   useEffect(() => {
     handleIntersection();
   }, [exploringInView, perksInView]);
@@ -47,6 +47,10 @@ function App() {
         <Header view={seeHeader} />
       </header>
 
+      <div className='background'></div>
+
+      {/* ----- LANDING ----- */}
+
       <div className="landing">
         <div className='text-intro'>
           <p>¿Por qué viajar con nosotros?</p>
@@ -54,6 +58,7 @@ function App() {
         </div>
       </div>
 
+      {/* ----- EXPLORING-OPTIONS ----- */}
       <div className='exploring-options' ref={exploringRef}>
         <div id='header-exploring-options'>
           <p>Explora el Suroeste antioqueño</p>
@@ -88,18 +93,19 @@ function App() {
         </div>
       </div>
 
+      {/* ----- PERKS ----- */}
       <div className='perks' ref={perksRef}>
         <div className='perk highlight'>
           <div className='perk-icon'>
             <HandshakeIcon sx={{ fontSize: 120, strokeWidth: 3, color: '#FFFFFF' }} id='hand-shaking' />
           </div >
-          <p  className='perk-title'>TALENTO</p>
+          <p className='perk-title'>TALENTO</p>
           <div className='perk-subtitle'>
             <p>+10 Guías locales</p>
           </div>
           <div className='perk-desc'>
             <p>Pauta con guías locales,
-            con gran experiencia en el sector. El personal mejor capacitado.</p>
+              con gran experiencia en el sector. El personal mejor capacitado.</p>
           </div>
           <div className='perk-redirect'>
             <div className='perk-button'>
@@ -112,7 +118,7 @@ function App() {
           <div className='perk-icon'>
             <HealthAndSafetyIcon sx={{ fontSize: 120, strokeWidth: 3, color: '#FFFFFF' }} id='shopping-cart' />
           </div >
-          <p  className='perk-title'>CONFIANZA</p>
+          <p className='perk-title'>CONFIANZA</p>
           <div className='perk-subtitle'>
             <p>Medidas de seguridad en tus viajes</p>
           </div>
@@ -127,7 +133,7 @@ function App() {
           <div className='perk-icon'>
             <AddShoppingCartIcon sx={{ fontSize: 120, strokeWidth: 3, color: '#FFFFFF' }} id='shopping-cart' />
           </div >
-          <p  className='perk-title'>OFERTA</p>
+          <p className='perk-title'>OFERTA</p>
           <div className='perk-subtitle'>
             <p>+3 Rutas únicas</p>
           </div>
@@ -140,6 +146,77 @@ function App() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* ----- REVIEWS ----- */}
+
+      <div className='reviews'>
+
+        <div className='review-item'>
+          <div className='bubble-img'>
+            <img src={Test1} alt='review-img'></img>
+          </div>
+          <div className='tooltip'>
+            <div className='bubble-text'>
+              <p><b>"</b>Una experiencia muy agradable<b>"</b> - Camilo</p>
+            </div>
+          </div>
+        </div>
+
+        <div className='review-item'>
+          <div className='bubble-img'>
+            <img src={Test1} alt='review-img'></img>
+          </div>
+          <div className='tooltip'>
+            <div className='bubble-text'>
+              <p><b>"</b>Guías bastante competentes<b>"</b> - Laura</p>
+            </div>
+          </div>
+        </div>
+
+        <div className='review-item'>
+          <div className='bubble-img'>
+            <img src={Test1} alt='review-img'></img>
+          </div>
+          <div className='tooltip'>
+            <div className='bubble-text'>
+              <p><b>"</b>Hospedajes cómodos<b>"</b> - Andrés</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ---- CONTACT-US ----*/}
+      <div className='contact-us'>
+            <div className='contact-us-c'>
+              <div className='left-contact-us'>
+                <p id='contact-us-title'>Contáctanos</p>
+                <p id='contact-us-desc'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                </p>
+              </div>
+              <div className='right-contact-us'>
+                <form id="contact-form">
+                    <div id="name-form-c-us">
+                        <label for="fname">Nombre: </label>
+                        <input type="text" id="fname" name="fname" placeholder="Ej. Juan Pérez"></input>
+                    </div>
+                    <div id="tel-form-c-us">
+                        <label for="ftel">Celular: </label>
+                        <input type="tel" id="ftel" name="ftel" pattern="[0-9]{10}" placeholder="Ej. 1234567890"></input>
+                    </div>
+                    <div id="mail-form-c-us">
+                        <label for="fmail">Correo: </label>
+                        <input type="email" id="fmail" name="fmail" placeholder="Ej. juan.perez@example.com"></input>
+                    </div>
+                    <div id="msg-form-c-us">
+                        <label for="fmsg">Mensaje: </label>
+                        <textarea id="fmsg" name="fmsg" placeholder="Ej. Quisiera más información sobre el paquete XX..."></textarea>
+                    </div>
+                    <button type="submit">ENVIAR</button>
+                </form>
+              </div>
+            </div>
       </div>
     </div>
   );

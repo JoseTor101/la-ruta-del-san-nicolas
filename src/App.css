@@ -79,6 +79,19 @@ body::-webkit-scrollbar{
   gap: 4vw;
 }
 
+/* BACKGROUND */
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url('img/cerro_nicolas.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  z-index: -2; 
+}
+
 /* LANDING */
 
 .landing{
@@ -86,11 +99,11 @@ body::-webkit-scrollbar{
   height: 100vh;
   top: 0;
   left: 0;
-  background-image: url('img/cerro_nicolas.jpg');
+  /*background-image: url('img/cerro_nicolas.jpg');
   background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-  background-position: center; /* Centra la imagen */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  z-index: -1; /* Coloca la imagen de fondo detrás de otros contenidos */
+  background-position: center; 
+  background-repeat: no-repeat; 
+  /*z-index: -1;*/
 }
 
 .text-intro {
@@ -391,3 +404,135 @@ body::-webkit-scrollbar{
   font-size: 1.1em;
 }
 
+/* --- REVIEWS --- */
+
+.reviews {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--dark-green);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  z-index: -2;
+}
+
+.review-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.tooltip {
+  background-color: white;
+  width: 60%;
+  height: 60%;
+  clip-path: polygon(0 80%, 0 0, 100% 0, 100% 100%, 80% 80%);
+  margin-top: 10%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1; 
+}
+
+.bubble-img {
+  position: absolute;
+  background-color: #d6d6d6;
+  height: 25%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-80%);
+  border-radius: 5%;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 2; 
+}
+
+.bubble-img > img {
+  height: calc(100% - 15px);
+  width: calc(100% - 15px); 
+  object-fit: cover; 
+}
+
+.bubble-text > p {
+  padding: 10% 5% 5% 5%;
+  font-size: 1.1em;
+}
+
+.bubble-text > p > b {
+  font-size: 1.2em;
+}
+
+
+/* --- CONTACT-US --- */
+
+.contact-us{
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.contact-us-c{
+  height: 70%;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-contact-us{
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#contact-us-title{
+  margin-top: 10%;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+#contact-us-desc{
+  padding: 5%;
+  font-size: 1.3em;
+}
+
+.right-contact-us{
+  flex: 50%;
+}
+
+#contact-form{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 15% 15% 15% 40% 15%;
+}
+
+#contact-form> div {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10%;
+}
+
+#contact-form > div > label {
+  font-weight: bold;
+}
+
+#fmsg {
+  width: 100%; /* Puedes ajustar este valor según tus necesidades */
+  height: 100%; /* Puedes ajustar este valor según tus necesidades */
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
+}
+
+#contact-form > button {
+  margin-right: 10%;
+}
