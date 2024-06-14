@@ -13,33 +13,81 @@ import HandshakeIcon from '@mui/icons-material/Handshake';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import Rope from './img/rope.svg';
+import Mountain from './img/cerro_Sn.svg';
 import Test1 from './img/test1.jpg';
 
 function App() {
   const [seeHeader, setSeeHeader] = useState(false);
   const [details, setDetails] = useState(false);
-
-  // Use useInView for exploring options
-  const { ref: exploringRef, inView: exploringInView } = useInView({
-    threshold: 0.3,
+  const [sent, setSend] = useState(false);
+  const [formData, setFormData] = useState({
+      fname: '',
+      ftel: '',
+      fmail: '',
+      fsubject: '',
+      fmsg: ''
   });
 
-  // Use useInView for perks without threshold
-  const { ref: perksRef, inView: perksInView } = useInView();
+  // -- Intersection functionality-- 
 
-  // Update seeHeader based on either inView status
-  const handleIntersection = () => {
-    setSeeHeader(exploringInView || perksInView);
-  };
+      // Use useInView for exploring options
+      const { ref: exploringRef, inView: exploringInView } = useInView({
+        threshold: 0.3,
+      });
 
-  // Handle changes in intersections of selected views
-  useEffect(() => {
-    handleIntersection();
-  }, [exploringInView, perksInView]);
+      // Use useInView for perks without threshold
+      const { ref: perksRef, inView: perksInView } = useInView();
 
-  const showDetails = (val) => {
-    setDetails(val);
-  }
+      // Update seeHeader based on either inView status
+      const handleIntersection = () => {
+        setSeeHeader(exploringInView || perksInView);
+      };
+
+      // Handle changes in intersections of selected views
+      useEffect(() => {
+        handleIntersection();
+      }, [exploringInView, perksInView]);
+
+      const showDetails = (val) => {
+        setDetails(val);
+      }
+
+  // -- Form managment
+
+      const handleChange = (e) => {
+          const { name, value } = e.target;
+          setFormData({
+              ...formData,
+              [name]: value
+          });
+      };
+
+
+      const handleSubmit = (e) => {
+          e.preventDefault();
+          // Manejo de formulario en el servidor
+
+          setSend(true);
+          setTimeout(() => {
+            setSend(false);
+          }, 3000)
+          
+
+         
+
+          setFormData({
+            fname: '',
+            ftel: '',
+            fmail: '',
+            fsubject: '',
+            fmsg: ''
+          })
+
+          
+          console.log('Formulario enviado:', formData);
+      };
+
+      
 
   return (
     <div className='main-wrapper'>
@@ -85,9 +133,9 @@ function App() {
                 <p>Cerro San Nicolás</p>
                 <ClearIcon sx={{ fontSize: 30, strokeWidth: 3 }} className='exit-icon' onClick={() => showDetails(false)} />
               </div>
-              <div className=''>Altura: 4080 MSNM</div>
-              <div className=''>Dificultad: *****</div>
-              <div className='detail-desc'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in semper felis. Sed gravida ullamcorper lectus ac venenatis. Praesent nulla ligula, condimentum sit amet dolor a, ullamcorper ornare libero. Nam pharetra sodales dui, non interdum lorem viverra a.</p></div>
+              <div className='detail-subt'><span>Altura:</span> 4080 MSNM</div>
+              <div className='detail-subt'><span>Dificultad:</span>*****</div>
+              <div className='detail-desc'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in semper felis. Sed gravida ullamcorper lectus ac venenatis. Praesent nulla ligula, condimentum sit amet dolor a, ullamcorper ornare libero.</p></div>
             </div>
           </div>
         </div>
@@ -152,38 +200,46 @@ function App() {
 
       <div className='reviews'>
 
-        <div className='review-item'>
-          <div className='bubble-img'>
-            <img src={Test1} alt='review-img'></img>
+        <div className='back-mountain'>
+          <img src={Mountain} alt='back-mountain'></img>
+        </div>
+
+        <div className='reviews-c'>
+          <div className='review-item'>
+            <div className='bubble-img'>
+              <img src={Test1} alt='review-img'></img>
+            </div>
+            <div className='tooltip'>
+              <div className='bubble-text'>
+                <p><b>"</b>Una experiencia muy agradable<b>"</b> - Camilo</p>
+              </div>
+            </div>
           </div>
-          <div className='tooltip'>
-            <div className='bubble-text'>
-              <p><b>"</b>Una experiencia muy agradable<b>"</b> - Camilo</p>
+
+          <div className='review-item'>
+            <div className='bubble-img'>
+              <img src={Test1} alt='review-img'></img>
+            </div>
+            <div className='tooltip'>
+              <div className='bubble-text'>
+                <p><b>"</b>Guías bastante competentes<b>"</b> - Laura</p>
+              </div>
+            </div>
+          </div>
+
+          <div className='review-item'>
+            <div className='bubble-img'>
+              <img src={Test1} alt='review-img'></img>
+            </div>
+            <div className='tooltip'>
+              <div className='bubble-text'>
+                <p><b>"</b>Hospedajes cómodos<b>"</b> - Andrés</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className='review-item'>
-          <div className='bubble-img'>
-            <img src={Test1} alt='review-img'></img>
-          </div>
-          <div className='tooltip'>
-            <div className='bubble-text'>
-              <p><b>"</b>Guías bastante competentes<b>"</b> - Laura</p>
-            </div>
-          </div>
-        </div>
-
-        <div className='review-item'>
-          <div className='bubble-img'>
-            <img src={Test1} alt='review-img'></img>
-          </div>
-          <div className='tooltip'>
-            <div className='bubble-text'>
-              <p><b>"</b>Hospedajes cómodos<b>"</b> - Andrés</p>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
       {/* ---- CONTACT-US ----*/}
@@ -192,29 +248,82 @@ function App() {
               <div className='left-contact-us'>
                 <p id='contact-us-title'>Contáctanos</p>
                 <p id='contact-us-desc'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Si estás interesado en viajar con nosotros escríbenos, te responderemos lo más pronto posible!
                 </p>
               </div>
               <div className='right-contact-us'>
-                <form id="contact-form">
-                    <div id="name-form-c-us">
-                        <label for="fname">Nombre: </label>
-                        <input type="text" id="fname" name="fname" placeholder="Ej. Juan Pérez"></input>
-                    </div>
-                    <div id="tel-form-c-us">
-                        <label for="ftel">Celular: </label>
-                        <input type="tel" id="ftel" name="ftel" pattern="[0-9]{10}" placeholder="Ej. 1234567890"></input>
-                    </div>
-                    <div id="mail-form-c-us">
-                        <label for="fmail">Correo: </label>
-                        <input type="email" id="fmail" name="fmail" placeholder="Ej. juan.perez@example.com"></input>
-                    </div>
-                    <div id="msg-form-c-us">
-                        <label for="fmsg">Mensaje: </label>
-                        <textarea id="fmsg" name="fmsg" placeholder="Ej. Quisiera más información sobre el paquete XX..."></textarea>
-                    </div>
-                    <button type="submit">ENVIAR</button>
-                </form>
+              <form id="contact-form" onSubmit={handleSubmit}>
+                  <div id='row-form-c'>
+                      <div id="name-form-c-us">
+                          <label htmlFor="fname">Nombre: </label>
+                          <input 
+                              type="text" 
+                              id="fname" 
+                              name="fname" 
+                              placeholder="Ej. Juan Pérez" 
+                              value={formData.fname} 
+                              onChange={handleChange} 
+                              required
+                          />
+                      </div>
+                      <div id="tel-form-c-us">
+                          <label htmlFor="ftel">Celular: </label>
+                          <input 
+                              type="tel" 
+                              id="ftel" 
+                              name="ftel" 
+                              pattern="[0-9]{10}" 
+                              title="El número debe tener 10 dígitos"
+                              placeholder="Ej. 1234567890" 
+                              value={formData.ftel} 
+                              onChange={handleChange}
+                              required
+                          />
+                      </div>
+                  </div>
+                  <div id="mail-form-c-us">
+                      <label htmlFor="fmail">Correo: </label>
+                      <input 
+                          type="email" 
+                          id="fmail" 
+                          name="fmail" 
+                          placeholder="Ej. juan.perez@example.com" 
+                          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                          title="Verifica el formato del correo"
+                          value={formData.fmail} 
+                          onChange={handleChange} 
+                          required
+                      />
+                  </div>
+                  <div id="subject-form-c-us">
+                      <label htmlFor="fsubject">Asunto: </label>
+                      <input 
+                          type="text" 
+                          id="fsubject" 
+                          name="fsubject" 
+                          placeholder="Ej. Información de paquetes" 
+                          value={formData.fsubject} 
+                          onChange={handleChange} 
+                          required
+                      />
+                  </div>
+                  <div id="msg-form-c-us">
+                      <label htmlFor="fmsg">Mensaje: </label>
+                      <textarea 
+                          id="fmsg" 
+                          name="fmsg" 
+                          placeholder="Ej. Quisiera más información sobre el paquete XX..." 
+                          value={formData.fmsg} 
+                          onChange={handleChange} 
+                          required
+                      />
+                  </div>
+                  <div className="button-form">
+                    <button id="submit-btn" type='submit'>
+                      { sent ? "ENVIADO!" : "ENVIAR" }
+                    </button>
+                  </div>
+              </form>
               </div>
             </div>
       </div>
