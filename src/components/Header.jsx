@@ -1,4 +1,4 @@
-import '../App.css';
+import '../styles/App.css';
 import logo from '../img/logo_.png';
 
 function Header({view}){

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ClothingPin from '../img/clothin_pin.svg';
-import Test from '../img/test.jpg';
 import Test1 from '../img/test1.jpg';
 
 function Photo ({ inview, showDetails }) {

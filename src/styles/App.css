@@ -85,7 +85,7 @@ body::-webkit-scrollbar{
   position: fixed;
   width: 100%;
   height: 100vh;
-  background-image: url('img/cerro_nicolas.jpg');
+  background-image: url('../img/cerro_nicolas.jpg');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
@@ -99,7 +99,7 @@ body::-webkit-scrollbar{
   height: 100vh;
   top: 0;
   left: 0;
-  /*background-image: url('img/cerro_nicolas.jpg');
+  /*background-image: url('../img/cerro_nicolas.jpg');
   background-size: cover; /* Hace que la imagen cubra toda la pantalla */
   background-position: center; 
   background-repeat: no-repeat; 
@@ -511,7 +511,7 @@ body::-webkit-scrollbar{
 
 .contact-us{
   width: 100%;
-  height: 101vh;
+  height: 110vh;
   top: 0;
   left: 0;
   display: flex;
@@ -642,4 +642,72 @@ body::-webkit-scrollbar{
 
 #submit-btn:hover{
   background-color: #36809E;
+}
+
+
+
+/*--- FOOTER ---*/
+
+
+
+footer {
+  background-color: var(--dark-green);
+  height: 60vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 80% 20%;
+}
+
+
+.footer-items-c{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.footer-items-c > div {
+  flex: 1;
+  margin-left: 3%;
+}
+
+.footer-items-c > div > h3 {
+  color: #ffff;
+}
+.footer-items-c > div > p {
+  text-align: justify;
+}
+
+#reach-me {
+  margin-top: -5%;
+}
+.f-reach-me {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.f-reach-me > p {
+  margin-left: 5%;
+}
+
+#location > a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.f-legal-info > p > a{
+  text-decoration: none;
+  color: inherit; 
+}
+
+#copyright{
+  bottom: 0; 
+  /*background-color: var(--secondary-color);*/
+  background-color: #87c157;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
 }
