@@ -3,9 +3,11 @@ import * as ReactDOM from "react-dom/client";
 import reportWebVitals from './reportWebVitals';
 import './styles/index.css';
 
+//pages
 import App from './App';
 import Landing from './pages/Landing';
 import ErrorPage from './pages/Error-page';
+import About from './pages/About';
 
 import {
 createBrowserRouter,
@@ -18,6 +20,23 @@ const router = createBrowserRouter([
     element: <Landing/>,
     errorElement: <ErrorPage/>,
   },
+  {
+    path: "/paquetes",
+    element: <About/>,
+  },
+  {
+    path: "/hospedajes",
+    element: <About/>,
+  },  
+  {
+    path: "/contacto",
+    element: <About/>,
+  },
+  {
+    path: "/about",
+    element: <About/>,
+  },
+  
 ]);
 
 
@@ -25,7 +44,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router}/>
-    <App />
+    {/*<App />*/}
   </React.StrictMode>
 );
 

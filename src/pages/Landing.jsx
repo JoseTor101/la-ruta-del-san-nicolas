@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useInView } from "react-intersection-observer";
 
 // COMPONENTS
@@ -52,9 +53,9 @@ function Landing(){
 
   return (
     <div className='main-wrapper'>
-      <header className="fixed-header">
-        <Header view={seeHeader} />
-      </header>
+      
+      <Header view={seeHeader} />
+      
 
       <div className='background'></div>
 
@@ -153,7 +154,7 @@ function Landing(){
           </div>
           <div className='perk-redirect'>
             <div className='perk-button'>
-              <p>EXPLORAR PAQUETES</p>
+              <p><Link to={`/paquetes`}>EXPLORAR PAQUETES</Link></p>
             </div>
           </div>
         </div>

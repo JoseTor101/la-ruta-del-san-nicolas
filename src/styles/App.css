@@ -43,6 +43,7 @@ body::-webkit-scrollbar{
   height: 12vh;
   display: flex;
   flex-direction: row;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .nav-color{
@@ -50,6 +51,7 @@ body::-webkit-scrollbar{
   height: 12vh;
   display: flex;
   flex-direction: row;
+  opacity: 1;
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -77,6 +79,11 @@ body::-webkit-scrollbar{
   font-size: 25;
   font-weight: bold;
   gap: 4vw;
+}
+
+.right-header > ul > li > a{
+  text-decoration: none;
+  color: inherit;
 }
 
 /* BACKGROUND */
@@ -285,6 +292,7 @@ body::-webkit-scrollbar{
   height: 100%;
   width: 80vw;
   background-color: white;
+  border-radius: 5px;
 }
 
 .detail-img{
@@ -423,6 +431,11 @@ body::-webkit-scrollbar{
 
 .perk-button > p{
   font-size: 1.1em;
+}
+
+.perk-button > p > a{
+  text-decoration: none;
+  color: inherit;
 }
 
 
@@ -672,25 +685,28 @@ footer {
   margin-left: 3%;
 }
 
-.footer-items-c > div > h3 {
-  color: #ffff;
-}
-.footer-items-c > div > p {
-  text-align: justify;
-}
+  .footer-items-c > div > h3 {
+    color: #ffff;
+  }
+
+  .footer-items-c > div > p {
+    text-align: justify;
+    height: min-content;
+  }
 
 #reach-me {
   margin-top: -5%;
 }
-.f-reach-me {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+  .f-reach-me {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-.f-reach-me > p {
-  margin-left: 5%;
-}
+    .f-reach-me > p {
+      margin-left: 5%;
+      
+    }
 
 #location > a{
   text-decoration: none;
