@@ -1,6 +1,9 @@
-import React, { memo } from 'react';
 import '../styles/About.css';
+import React, { memo } from 'react';
+
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SlideCard from '../components/SlideCard';
 
 import Cerro from '../img/cerro_nicolas.jpg';
 
@@ -45,8 +48,25 @@ function About() {
             </div>
 
             <div className="members-c">
-                
+                <p className='members-title'>Miembros</p>
+                <div className="slider-m-c">
+                    <div className="slider-m-track">
+
+                        {/* 4 SLIDES , check css if making changes in slide size*/}
+                        
+                        {Array.from({length: 4}).map((_, index) => (
+                            <SlideCard img={Cerro} name={"Jhon Ramirez"} role={"CEO"}/>
+                        ))}
+                        
+                        {/* 4 SLIDES (DOUBLED)*/}
+                        {Array.from({length: 4}).map((_, index) => (
+                            <SlideCard img={Cerro} name={"Jhon Ramirez"} role={"CEO"}/>
+                        ))}
+                        
+                    </div>
+                </div>
             </div>
+            <Footer/>
         </div>
     );
 }

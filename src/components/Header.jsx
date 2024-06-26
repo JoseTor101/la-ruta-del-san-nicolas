@@ -1,32 +1,55 @@
 import '../styles/App.css';
 import logo from '../img/logo_.png';
-import { Link } from 'react-router-dom';
 
-function Header({view}){
-    
+import {
+    Link,
+    useLocation
+}
+    from 'react-router-dom';
+
+import { useEffect, useState } from 'react';
+
+
+function Header({ view }) {
+
+    const location = useLocation();
+    const [currentPath, setCurrentPath] = useState(location.pathname);
+
+    useEffect(() => {
+        setCurrentPath(location.pathname);
+    }, [location.pathname]);
+
+
     let transparency = 'nav-watchtrough';
 
-    if(view){
+    if (view) {
         transparency = 'nav-color';
     }
 
 
-    return(
+    return (
         <header className="fixed-header">
             <nav className={transparency}>
                 <div className="left-header">
-                    <Link to={`/`}><img src={logo} id="logo" alt="logo_lrdsn"/></Link>
+                    <Link to={`/`}><img src={logo} id="logo" alt="logo_lrdsn" /></Link>
                 </div>
                 <div className="right-header">
                     <ul className='right-header'>
-                        <li><Link to={`/paquetes`}>Paquetes</Link></li>
-                        <li><Link to={`/hospedajes`}>Hospedajes</Link></li>
-                        <li><Link to={`/contacto`}>Contacto</Link></li>
-                        
-                        <li><Link to={`/about`}>Sobre nosotros</Link></li>
+                        <li className={(currentPath === '/paquetes') ? "header-focus" : "header-not-focus"}>
+                            <Link to={`/paquetes`}>Paquetes</Link>
+                        </li>
+                        <li className={(currentPath === '/hospedajes') ? "header-focus" : "header-not-focus"}>
+                            <Link to={`/hospedajes`}>Hospedajes</Link>
+                        </li>
+                        <li className={(currentPath === '/contacto') ? "header-focus" : "header-not-focus"}>
+                            <Link to={`/contacto`}>Contacto</Link>
+                        </li>
+                        <li className={(currentPath === '/about') ? "header-focus" : "header-not-focus"}>
+                            <Link to={`/about`}>Sobre nosotros</Link>
+                        </li>
                     </ul>
                 </div>
-                
+
             </nav>
         </header>
     );

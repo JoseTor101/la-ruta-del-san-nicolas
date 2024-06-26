@@ -1,8 +1,9 @@
+
 .main-c{
     width: 100vw;
     height: auto;
     position: relative;
-    background-color: #09f;
+    background-color: var(--primary-color);
 }
 
 /* -- Landing About -- */
@@ -72,12 +73,14 @@
 
 .mission-c {
     height: 100vh;
-    width: 100vw;
+    width: 97vw;
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    margin-left: 2%;
+    padding: 8% 0  2% 5%;
+
+    margin-right: 5%;
 }
     .mission-c > div >{
         display: flex;
@@ -88,6 +91,7 @@
         color: #fff;
         font-size: 48px;
         font-weight: 600;
+        margin: 0;
     }
     
     .mission-st{
@@ -100,14 +104,14 @@
         grid-row: 1;
         grid-column: 1;
         width: 90%;
-        height: 50vh;
+        height: 40vh;
     }
 
     .vision{
         grid-row: 1;
         grid-column: 2;
         width: 90%;
-        height: 50vh;
+        height: 40vh;
     }
 
     .origin {
@@ -118,9 +122,87 @@
     }
 
 
-/* -- Members -- */
+/* -- Members --*/
 
 .members-c{
     height: 100vh;
     width: 100vw;
+}
+
+.members-title{
+    color: #fff;
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+}
+.slider-m-c{
+    height: 350px;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+    .slider-m-track{
+        display: flex;
+        /*width = total number of slides (4x2 = 8) x individual slide width (250px + 20px margin) */
+        width: calc(270px * 8);
+        animation: scroll 30s linear infinite;
+    }
+
+    @keyframes scroll {
+        0%{
+            transform: translateX(0);
+        }
+        100%{ 
+            transform: translateX(calc(-270px * 4));  /* Move the width of 4 slides */
+        }
+    }
+
+        .slide-item{
+            min-height: 200px;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: #fff;
+            margin: 0 10px 0 10px;
+            border-radius: 5px;
+        }
+
+            .slide-item-t{
+                font-weight: 600;
+            }
+
+            .slide-item > img{
+                width: 100%;
+                border-radius: 2px;
+            }
+
+            
+
+    /* Slider shadows */
+
+.slider-m-c::before,
+.slider-m-c::after{
+    background: linear-gradient(to right, rgba(54,128,158,1) 0%,
+    rgba(255,255,255,0) 100%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 22%;
+    z-index: 2;
+}
+
+.slider-m-c::before{
+    left: 0;
+    top: 0;
+}
+
+.slider-m-c::after{
+    right: 0;
+    top: 0;
+    transform: rotate(180deg);
 }
