@@ -1,16 +1,12 @@
 import '../styles/App.css';
-import logo from '../img/logo_.png';
+import Logo from '../img/logo_.png';
 
-import {
-    Link,
-    useLocation
-}
-    from 'react-router-dom';
+import { Link, useLocation }from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 
 
-function Header({ view }) {
+function Header({view}) {
 
     const location = useLocation();
     const [currentPath, setCurrentPath] = useState(location.pathname);
@@ -31,7 +27,7 @@ function Header({ view }) {
         <header className="fixed-header">
             <nav className={transparency}>
                 <div className="left-header">
-                    <Link to={`/`}><img src={logo} id="logo" alt="logo_lrdsn" /></Link>
+                    <Link to={`/`}><img src={Logo} id="logo" alt="logo_lrdsn" /></Link>
                 </div>
                 <div className="right-header">
                     <ul className='right-header'>

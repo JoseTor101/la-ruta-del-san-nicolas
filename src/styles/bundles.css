@@ -1,0 +1,52 @@
+.bundles-m-c{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/cerro_nicolas.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    z-index: -2;
+}
+
+    .bundles-l-section{
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        align-items: center;
+    }
+
+.slide-c{
+    display: grid;
+    place-items: center;
+    width: 100vw;
+}
+
+.slide-box{
+    width: 80vw;
+}
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;   
+  }
+  
+  .swiper-slide {
+    text-align: center;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 400px;
+  }
+  

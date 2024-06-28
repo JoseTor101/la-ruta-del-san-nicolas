@@ -6,8 +6,9 @@ import './styles/index.css';
 //pages
 import App from './App';
 import Landing from './pages/Landing';
-import ErrorPage from './pages/Error-page';
+import Bundles from './pages/Bundles';
 import About from './pages/About';
+import ErrorPage from './pages/Error-page';
 
 import {
 createBrowserRouter,
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/paquetes",
-    element: <About/>,
+    element: <Bundles/>,
   },
   {
     path: "/hospedajes",
