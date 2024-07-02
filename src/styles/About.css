@@ -141,7 +141,7 @@
     position: relative;
     width: 100%;
     display: grid;
-    place-items: center;
+        place-items: center;
 }
 
     .slider-m-track{
@@ -162,7 +162,7 @@
 
         .slide-item{
             min-height: 200px;
-            width: 250px;
+            min-width: 250px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -205,4 +205,106 @@
     right: 0;
     top: 0;
     transform: rotate(180deg);
+}
+
+
+@media (max-width: 768px) {
+    .main-c {
+        width: 100vw;
+    }
+
+    .landing-about {
+        height: auto;
+    }
+
+    .about-c {
+        flex-direction: column;
+        height: auto;
+        padding-top: 25%;
+    }
+
+        .about-c-l, .about-c-r {
+            flex: 100%;
+            padding: 2% 5%;
+        }
+            .about-c-l {
+                display: grid;
+                place-items: center;
+                
+            }
+            .about-title {
+                font-size: 38px;
+                text-align: center;
+                text-wrap: balance;
+                width: 100%;
+                white-space: normal;
+                margin: 0;
+            }
+
+            .about-subt {
+                font-size: 22px;
+                width: 100%;
+                margin-left: 10%;
+                padding-right: 10%;
+                transform: translateX(-4%);
+            }
+
+            .img-c {
+                width: 100%;
+                height: auto;
+            }
+
+                .img-c > img {
+                    width: 100%;
+                    height: auto;
+                }
+
+    .mission-c {
+        height: auto;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        padding: 4% 5%;
+        margin-right: 0;
+    }
+
+    .mission-t{
+        text-align: center;
+    }
+
+        .mission, .vision, .origin {
+            width: 100%;
+            height: auto;
+        }
+
+        .mission, .vision {
+            margin-bottom: 20px;
+        }
+
+    .members-c {
+        height: auto;
+        margin-bottom: 15%;
+    }
+
+    .members-title{
+        margin-bottom: 10%;
+    }
+    .slider-m-c {
+        height: auto;
+       
+    }
+
+        .slider-m-track {
+            justify-content: center;
+        }
+
+            .slide-item {
+                height: 300px;
+                width: 200px;
+                margin: 0 5% 20px 5%;
+            }
+
+    .slider-m-c::before, .slider-m-c::after {
+        display: none;
+    }
 }

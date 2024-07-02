@@ -164,9 +164,7 @@ function Landing(){
 
       <div className='reviews'>
 
-        <div className='back-mountain'>
-          <img src={Mountain} alt='back-mountain'></img>
-        </div>
+        
 
         <div className='reviews-c'>
           <div className='review-item'>
@@ -201,8 +199,12 @@ function Landing(){
               </div>
             </div>
           </div>
+          
         </div>
-
+        
+        <div className='back-mountain'>
+          <img src={Mountain} alt='back-mountain'></img>
+        </div>
         
       </div>
 
