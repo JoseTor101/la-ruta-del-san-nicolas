@@ -9,9 +9,15 @@ import 'swiper/css/navigation';
 
 import CheckIcon from '@mui/icons-material/Check';
 
-import BUNDLES_DATA from '../data/bundles';
+import {BUNDLES_DATA} from '../data/bundles';
 
-function ImageSlider(){
+function ImageSlider({ changeVisibility, getChildId}){
+
+  const showModal = (id) => {
+    changeVisibility();
+    getChildId(id);
+  }
+
   return (
     <div className='slide-c'>
       <div className='slide-box'>
@@ -52,7 +58,7 @@ function ImageSlider(){
 
           {
             BUNDLES_DATA.map((bundle, index) => (
-              <SwiperSlide key={index}> 
+              <SwiperSlide key={bundle.id}> 
                 <div className="bundle-c">
                   <p className="bundle-header">{bundle.name}</p>
                   <div className="bundle-img">
@@ -60,15 +66,17 @@ function ImageSlider(){
                   </div>
                   <div className="bundle-perks">
                         <ul className='bundle-perks-i'>
-                            {/*   MAX PERK ITEMS: 8*/}
-                            {bundle.perks.map((perk, index) => (
-                            
-                              <li key={index}><CheckIcon sx={{ color: 'var(--dark-green)', strokeWidth: 3 }}/>{perk}</li>
                           
+                          {/*   MAX PERK ITEMS: 8*/}
+
+                            {Object.entries(bundle.perks).map(([perk, value]) => (
+                              <li key={index}><CheckIcon sx={{ color: 'var(--dark-green)', strokeWidth: 3 }}/>{perk}</li>
                             ))}
+
+                            
                        </ul>
-                  </div>
-                  <div className="bundle-detail">Más información</div>
+                  </div>  
+                  <div className="bundle-detail" onClick={() => showModal(bundle.id)}>Más información</div>
                   <div className="bundle-button">ME INTERESA</div>
                 </div>
               </SwiperSlide>
