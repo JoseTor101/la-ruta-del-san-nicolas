@@ -1,4 +1,4 @@
-
+import React from 'react'
 // IMG's / ICONS
 import Location from '@mui/icons-material/LocationOn';
 import MailIcon from '@mui/icons-material/Mail';
@@ -47,4 +47,4 @@ function Footer(){
     )
 }
 
-export default Footer;
+export default React.memo(Footer);

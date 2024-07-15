@@ -11,11 +11,15 @@ import CheckIcon from '@mui/icons-material/Check';
 
 import {BUNDLES_DATA} from '../data/bundles';
 
-function ImageSlider({ changeVisibility, getChildId}){
+function ImageSlider({ changeVisibility, getChildId, triggerWhatsApp }) {
 
   const showModal = (id) => {
     changeVisibility();
     getChildId(id);
+  }
+
+  const sendMsg = (msg) => {
+    triggerWhatsApp(`Hola, quisiera más información del paquete: *${msg}*`);
   }
 
   return (
@@ -70,14 +74,14 @@ function ImageSlider({ changeVisibility, getChildId}){
                           {/*   MAX PERK ITEMS: 8*/}
 
                             {Object.entries(bundle.perks).map(([perk, value]) => (
-                              <li key={index}><CheckIcon sx={{ color: 'var(--dark-green)', strokeWidth: 3 }}/>{perk}</li>
+                              <li key={perk}><CheckIcon sx={{ color: 'var(--dark-green)', strokeWidth: 3 }}/>{perk}</li>
                             ))}
 
                             
                        </ul>
                   </div>  
                   <div className="bundle-detail" onClick={() => showModal(bundle.id)}>Más información</div>
-                  <div className="bundle-button">ME INTERESA</div>
+                  <div className="bundle-button" onClick={() => sendMsg(bundle.name)}>ME INTERESA</div>
                 </div>
               </SwiperSlide>
             ))

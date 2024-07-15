@@ -4,6 +4,7 @@ import React, { memo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SlideCard from '../components/SlideCard';
+import Whatsapp from '../components/Whatsapp';
 
 import Cerro from '../img/cerro_nicolas.jpg';
 
@@ -67,6 +68,7 @@ function About() {
                 </div>
             </div>
             <Footer/>
+            <Whatsapp/>
         </div>
     );
 }
