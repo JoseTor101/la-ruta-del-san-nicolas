@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { BUNDLES_DATA } from '../data/bundles';
 import CloseIcon from '@mui/icons-material/Close';
-import MapComponent from './MapComponent';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 

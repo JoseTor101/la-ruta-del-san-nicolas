@@ -1,0 +1,83 @@
+.hosting-m-c{
+    height: auto;
+    width: 100%;
+}
+
+.hosting-items-c{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../img/cerro_nicolas.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hosting-slider-c{
+    height: 75%;
+    width: 90%;
+}
+
+.swiper-h {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .swiper-slide-h {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    height: calc((100% - 30px) / 2) !important;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 40% 60%;
+
+  }
+
+  .house-img-c{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+  }
+
+  .house-img-c > img{
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    margin-left: 0;
+  }
+
+  .house-c-r{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .house-t{
+    margin: -5% 0 5% 0;
+  }
+
+  .house-time, .house-capacity{
+    display: flex;
+    flex-direction: row;
+  }
+  .house-time > p, .house-capacity > p{
+    margin-left: 10px;
+  }
+
+  #disclaimer {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 10px;
+  }

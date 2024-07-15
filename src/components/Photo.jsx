@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import ClothingPin from '../img/clothin_pin.svg';
+import ClothingPin from '../img/pin1.png';
 import Test1 from '../img/test1.jpg';
 
-function Photo ({ inview, showDetails }) {
+function Photo ({ inview, showDetails, data, setDetailData}) {
     const [clicked, setClicked] = useState(false);
     const visibilityClass = inview === 1 ? 'bounce-in' : 'hidden';
     
     const handleClick = () => {
         setClicked(true);
+        setDetailData(data);
     }
 
     useEffect(() => {
@@ -29,4 +30,4 @@ function Photo ({ inview, showDetails }) {
     )
 }
 
-export default Photo;
+export default React.memo(Photo);

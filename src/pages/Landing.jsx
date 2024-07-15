@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useInView } from "react-intersection-observer";
 
 // COMPONENTS
@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Photo from '../components/Photo';
 import Form from '../components/Form';
 import Footer from '../components/Footer';
+import Whatsapp from '../components/Whatsapp';
 
 // IMG's / ICONS
 import ArrowDownward from '@mui/icons-material/ArrowDownward';
@@ -14,20 +15,21 @@ import ClearIcon from '@mui/icons-material/Clear';
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-
-import Rope from '../img/rope.svg';
 import Mountain from '../img/cerro_Sn.svg';
 import Test1 from '../img/test1.jpg';
 
+// DATA
+import { IMAGES, EXPLORING} from '../data/demo';
 
 function Landing(){
-
-  const [seeHeader, setSeeHeader] = useState(false);
-  const [details, setDetails] = useState(false);
-  const [send, setSend] = useState(false);
+  const location = useLocation();  // Get current location to scroll to contact-me
+  const [seeHeader, setSeeHeader] = useState(false); // Set header background when scrolling
+  const [details, setDetails] = useState(false); // Show details of exploring item
+  const [exploringData, setExploringData] = useState(null); // Data of exploring item
+  const [send, setSend] = useState(false);  // Send form status
   
 
-  // -- Intersection functionality-- 
+  /* -- Intersection functionality-- */
 
       // Use useInView for exploring options
       const { ref: exploringRef, inView: exploringInView } = useInView({
@@ -47,9 +49,33 @@ function Landing(){
         handleIntersection();
       }, [exploringInView, perksInView]);
 
+    /*---- */
+
+    // Show exploring item details
       const showDetails = (val) => {
         setDetails(val);
       }
+
+    // Scroll to contact-me when location changes
+    useEffect(() => {
+      // Verificar si la ubicación actual contiene el hash #contact-me
+      if (location.hash === '#contact-me') {
+        const contactElement = document.getElementById('contact-me');
+        if (contactElement) {
+          contactElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }, [location]);
+
+    // Set exploring item data
+    const setDetailData = (value) =>{
+      setExploringData(value);
+    }
+
+    const generateStars = (num) => {
+      return '★'.repeat(num) + '☆'.repeat(5 - num); // 5 es el número máximo de estrellas
+    };
+    
 
   return (
     <div className='main-wrapper'>
@@ -75,34 +101,42 @@ function Landing(){
         </div>
 
         <div className={details ? 'carousel-container-hidden' : 'carousel-container'}>
-          <figure id='rope-hanging1'>
-            <img src={Rope} alt="rope" key={"rope"}></img>
-          </figure>
-
+        
           <div className='photo-container'>
-            {Array.from({ length: 4 }).map((_, index) => (
-              <Photo key={index} inview={exploringInView ? 1 : 0} showDetails={showDetails} />
+            {Object.entries(EXPLORING).map(([key, value]) => (
+              <Photo 
+              key={key} 
+              data={value} 
+              inview={exploringInView ? 1 : 0} 
+              showDetails={showDetails} 
+              setDetailData={setDetailData}/>
             ))}
+            
           </div>
           
         </div>
-
-        <div className={details ? 'exploring-detail-c visible' : 'exploring-detail-c'}>
-          <div className='square-info-c'>
-            <div className='detail-img'>
-              <img src={Test1} alt='test-img'></img>
-            </div>
-            <div className='detail-info-c'>
-              <div className='detail-title'>
-                <p>Cerro San Nicolás</p>
-                <ClearIcon sx={{ fontSize: 30, strokeWidth: 3 }} className='exit-icon' onClick={() => showDetails(false)} />
+        {
+          details ?
+          <div className={details ? 'exploring-detail-c visible' : 'exploring-detail-c'}>
+            <div className='square-info-c'>
+              <div className='detail-img'>
+                <img src={Test1} alt='test-img'></img>
               </div>
-              <div className='detail-subt'><span>Altura:</span> 4080 MSNM</div>
-              <div className='detail-subt'><span>Dificultad:</span>*****</div>
-              <div className='detail-desc'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in semper felis. Sed gravida ullamcorper lectus ac venenatis. Praesent nulla ligula, condimentum sit amet dolor a, ullamcorper ornare libero.</p></div>
+              <div className='detail-info-c'>
+                <div className='detail-title'>
+                  <p>{exploringData.name}</p>
+                  <ClearIcon sx={{ fontSize: 30, strokeWidth: 3 }} className='exit-icon' onClick={() => showDetails(false)} />
+                </div>
+                <div className='detail-subt'><span>Altura: </span>{exploringData.height}</div>
+                <div className='detail-subt'><span>Dificultad: </span>{generateStars(exploringData.difficulty)}</div>
+                <div className='detail-desc'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in semper felis. Sed gravida ullamcorper lectus ac venenatis. Praesent nulla ligula, condimentum sit amet dolor a, ullamcorper ornare libero.</p></div>
+              </div>
             </div>
           </div>
-        </div>
+          :
+          null
+        }
+        
       </div>
 
       {/* ----- PERKS ----- */}
@@ -154,7 +188,7 @@ function Landing(){
           </div>
           <div className='perk-redirect'>
             <div className='perk-button'>
-              <p><Link to={`/paquetes`}>EXPLORAR PAQUETES</Link></p>
+              <Link to={`/paquetes`}><p>EXPLORAR PAQUETES</p></Link>
             </div>
           </div>
         </div>
@@ -209,7 +243,7 @@ function Landing(){
       </div>
 
       {/* ---- CONTACT-US ----*/}
-      <div className='contact-us'>
+      <div className='contact-us' id='contact-me'>
             <div className='contact-us-c'>
               <div className='left-contact-us'>
                 <p id='contact-us-title'>Contáctanos</p>
@@ -227,6 +261,8 @@ function Landing(){
       {/* FOOTER */}
 
       <Footer/>
+        
+      <Whatsapp/>
 
     </div>
   );

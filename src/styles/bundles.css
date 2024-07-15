@@ -42,6 +42,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
 }
 
 
@@ -136,6 +137,7 @@
     color: #fff;
     font-weight: 600;
     font-size: 20px;
+    cursor: pointer;
   }
 
   .swiper-slide-prev .bundle-c, .swiper-slide-next .bundle-c {

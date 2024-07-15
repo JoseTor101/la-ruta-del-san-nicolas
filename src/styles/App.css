@@ -40,10 +40,7 @@ body::-webkit-scrollbar{
   flex-direction: column;
   box-sizing: content-box;
 }
-/*
-.landing, .exploring-options {
-  flex: 1;
-}*/
+
 /* ------ HEADER ------*/
 
 .fixed-header{
@@ -72,7 +69,7 @@ body::-webkit-scrollbar{
 
 #logo {
   transform:translate(0,-20%);
-  height: 18vh;
+  height: 20vh;
 
 }
 .left-header{
@@ -266,22 +263,14 @@ body::-webkit-scrollbar{
   position: relative;
 }
 
-.exploring-options{
-  background-color: var(--primary-color);
-  width: 100%;
-  height: 110vh;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
 
 #header-exploring-options{
   margin: 0;
   margin-top: 10vh;
-  height: 38vh;
+  position: inherit;
   color: white;
   font-weight: bold;
-  font-size: 2.5em;
+  font-size: 2.7em;
   text-align: center;
   align-items: flex-end;
 }
@@ -293,7 +282,10 @@ body::-webkit-scrollbar{
 .carousel-container{
   width: 100%;
   height: 62vh;
-  margin-bottom: 10vh;
+}
+.carousel-container-hidden{
+  width: 100%;  
+  height: 62vh;
 }
 
 .carousel-container-hidden> * {
@@ -301,29 +293,40 @@ body::-webkit-scrollbar{
   transition: opacity 0.5s ease-out;
 }
 
-#rope-hanging1 {
-  width: 110vw;
-  transform: translateX(-10%) translateY(-70%) rotate(2deg);
-}
 
 .photo-container{
-  height: auto;
+  height: 100%;
   width: 100%;
+  margin-top: 4%;
   display: grid;
-  padding-left: 2vw;
+  place-items: center;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  position: relative;
 }
 
+.photo-holder{
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+
+}
 .clothin-pin {
+  top: -40px;
+  right: 30px;
   height: 100px;
-  transform: translate(-130%, -105%);
-  margin-top: -50%;
+  position: absolute;
+  z-index: 2000!important;
 }
 
 .square{
-  margin-top: -50%;
   margin-bottom: 0;
   width: 200px;
   height: 200px;
@@ -446,6 +449,7 @@ body::-webkit-scrollbar{
 .exit-icon{
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 /*.detail-title button{
   position: absolute;
@@ -471,9 +475,11 @@ body::-webkit-scrollbar{
 
 .perks > div{
   height: 100%;
+  width: 100%;
   display: grid;
   grid-template-rows: 35% 10% 5% 35% 15%;
   text-align: center;
+  background-color: var(--dark-green);
 }
 
 .perk.highlight{
@@ -513,6 +519,7 @@ body::-webkit-scrollbar{
   justify-content: center;
   align-items: center;
   padding-bottom: 5%;
+  width: 100%;
 }
 
 @keyframes pulse{
@@ -528,7 +535,7 @@ body::-webkit-scrollbar{
 }
 .perk-button{
   min-width: 50%;
-  min-height: 70%;
+  height: 60px;
   margin-top: -20%;
   border-radius: 10px;
   background-color: white;
@@ -539,12 +546,13 @@ body::-webkit-scrollbar{
   animation: pulse 4s infinite;
 }
 
-.perk-button > p{
+.perk-button{
   font-size: 1.1em;
+  font-weight: 500;
 }
 
-.perk-button > p > a{
-  text-decoration: none;
+.perk-button >  a{
+  text-decoration: none!important;
   color: inherit;
 }
 
@@ -566,9 +574,17 @@ body::-webkit-scrollbar{
     margin-top: 10%;
   }
 
+  .perk-redirect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+    width: 45%;
+  }
+
   .perk-button{
-    height: auto;
-    width: 100%;
+    height: 60px;
+    width: 100% ;
     white-space: nowrap;
     margin-top: 0;
   }
@@ -727,12 +743,16 @@ body::-webkit-scrollbar{
 #contact-us-title{
   margin-top: 10%;
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.6em;
 }
 
 #contact-us-desc{
   padding: 5%;
-  font-size: 1.3em;
+  font-size: 1.5em;
+  /*width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;*/
 }
 
 .right-contact-us{
